@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Epanè - Bistro del Sannio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Epanè, bistrò del Sannio ad Apollosa (BN): bar, pasticceria e gastronomia con prodotti artigianali e ambiente accogliente." />
+  <style>
+    :root {
+      --bg: #fdf5e6;
+      --accent: #8a4b2e;
+      --accent-light: #c58a5c;
+      --text: #3e2a1f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .container {
+      width: min(1100px, 100% - 32px);
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    nav a {
+      margin-left: 16px;
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+      padding: 40px 0 32px;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .hero-text p {
+      margin-bottom: 10px;
+    }
+
+    .hero-text .cta {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent-light);
+      box-shadow: none;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    section {
+      padding: 32px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    /* CARDS */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 16px 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      color: var(--accent);
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 6px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      height: 220px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    /* LOCATION */
+
+    .location {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .location-image img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      margin-top: 8px;
+      padding-left: 18px;
+    }
+
+    footer {
+      background: #ffffff;
+      margin-top: 32px;
+      padding: 24px 0 32px;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      font-size: 0.9rem;
+      color: #6b5440;
+    }
+
+    .eu-banner {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .eu-banner img {
+      max-width: 520px;
+      width: 100%;
+      height: auto;
+      display: inline-block;
+    }
+
+    .footer-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero,
+      .location {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER con logo in alto a sinistra -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="Epane-Logo.jpg" alt="Logo Epanè Bistro del Sannio" />
+      </div>
+      <nav>
+        <a href="#chi-siamo">Chi siamo</a>
+        <a href="#cosa-trovi">Cosa trovi</a>
+        <a href="#dove-siamo">Dove siamo</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section>
+      <div class="container hero">
+        <div class="hero-text">
+          <h1>Epanè, il bistrò del Sannio</h1>
+          <p>
+            Un luogo caldo e accogliente dove iniziare la giornata con il profumo del pane,
+            fermarsi per un pranzo veloce o concedersi un dolce artigianale in buona compagnia.
+          </p>
+          <p>
+            Ci trovi lungo la Strada Statale Appia ad Apollosa (BN), a pochi minuti da Benevento,
+            in una posizione comoda per chi viaggia, lavora o vive nel territorio.
+          </p>
+          <div class="cta">
+            <a class="btn" href="#dove-siamo">Raggiungici</a>
+            <a class="btn btn-outline" href="#cosa-trovi">Scopri cosa trovi</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="esterno-tavoli-epane.jpg" alt="Dehors esterno con tavoli di Epanè" />
+        </div>
+      </div>
+    </section>
+
+    <!-- CHI SIAMO -->
+    <section id="chi-siamo">
+      <div class="container">
+        <h2>Chi siamo</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Bar, pasticceria e gastronomia</h3>
+            <p>
+              Epanè unisce caffetteria, pasticceria e cucina espressa: dal cornetto del mattino
+              ai piatti caldi, passando per dolci e prodotti da forno preparati ogni giorno.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Toni caldi, atmosfera di casa</h3>
+            <p>
+              Sale interne curate, bancone luminoso e un ampio spazio esterno coperto creano
+              un ambiente rilassato, ideale per colazioni, pause pranzo, aperitivi e serate tra amici.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Territorio e stagionalità</h3>
+            <p>
+              Materie prime selezionate, attenzione ai sapori del Sannio e proposte pensate per valorizzare
+              i prodotti del territorio in modo semplice e genuino.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COSA TROVI -->
+    <section id="cosa-trovi">
+      <div class="container">
+        <h2>Cosa trovi da Epanè</h2>
+
+        <div class="gallery">
+          <img src="pane-epane.jpg" alt="Banco del pane e prodotti da forno di Epanè" />
+          <img src="lato-salato.jpg" alt="Banco gastronomia e piatti caldi di Epanè" />
+          <img src="entrata-epane1.jpg" alt="Ingresso principale di Epanè" />
+        </div>
+
+        <p style="margin-top: 18px;">
+          Dal cappuccino con brioche ai pranzi completi, passando per pizza, piatti caldi,
+          pasticceria e stuzzicheria, Epanè accompagna ogni momento della giornata con
+          proposte pensate per chi desidera gusto e praticità.
+        </p>
+      </div>
+    </section>
+
+    <!-- DOVE SIAMO -->
+    <section id="dove-siamo">
+      <div class="container">
+        <h2>Dove siamo</h2>
+        <div class="location">
+          <div>
+            <p>
+              Siamo sulla Strada Statale Appia 7, Km 254,600 – 82030 Apollosa (BN),
+              all’interno dell’area del Consorzio Sannio Tech.
+            </p>
+            <p>
+              La posizione lungo una delle principali arterie del Sannio e l’ampio parcheggio
+              rendono Epanè il posto ideale per una sosta comoda in ogni momento della giornata.
+            </p>
+            <p style="margin-top: 8px;">
+              <strong>Orari indicativi:</strong> aperto tutti i giorni dalle 6:00 a mezzanotte.
+            </p>
+          </div>
+          <div class="location-image">
+            <!-- In futuro puoi sostituire con un iframe di Google Maps -->
+            <img src="entrata-epane1.jpg" alt="Vista esterna dell'ingresso di Epanè" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti">
+      <div class="container">
+        <h2>Contatti</h2>
+        <p>Per informazioni, prenotazioni o richieste speciali:</p>
+        <ul>
+          <li>Telefono: +39 0824 45898</li>
+          <li>Email: info@epane.it</li>
+          <li>Social: cerca "Epanè bar pasticceria gastronomia" su Facebook e Instagram.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER con banner EU in fondo alla pagina -->
+  <footer>
+    <div class="container">
+      <div class="eu-banner">
+        <img
+          src="COFINANZIATO-DALL-UNIONE-EUROPEA.jpg"
+          alt="Progetto cofinanziato dall'Unione Europea"
+        />
+      </div>
+
+      <div class="footer-meta">
+        <span>&copy; <span id="year"></span> Epanè Srl – Tutti i diritti riservati.</span>
+        <span>Strada Statale Appia 7, Km 254,600 – 82030 Apollosa (BN).</span>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
